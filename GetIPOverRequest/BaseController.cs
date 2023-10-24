@@ -4,14 +4,8 @@ namespace GetIPOverRequest
 {
     public class BaseController : ControllerBase
     {
-        protected string? GetIpAddress
-        {
-            get
-            {
-                return Request.Headers.ContainsKey("X-Forwarded-For")
-            ? Request.Headers["X-Forwarded-For"]
-            : HttpContext.Connection.RemoteIpAddress?.MapToIPv4().ToString() ?? "N/A";
-            }
-        }
+        public string? IpAddress => Request.Headers.ContainsKey("X-Forwarded-For")
+                    ? Request.Headers["X-Forwarded-For"]
+                    : HttpContext.Connection.RemoteIpAddress?.MapToIPv4().ToString() ?? null;
     }
 }
