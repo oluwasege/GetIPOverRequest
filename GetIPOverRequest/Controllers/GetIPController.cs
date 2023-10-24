@@ -10,7 +10,7 @@ namespace GetIPOverRequest.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            return Ok(GetIpAddress);
+            return Ok(IpAddress);
         }
 
     }
